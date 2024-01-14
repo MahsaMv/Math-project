@@ -1,11 +1,23 @@
-input1 = [3, 5, 4]
-input2 = [2, 4, 5, 5]
+#ضرایب چند جمله ای از کاربر دریافت میکنیم
+input1 = input("input1: ")
+input2 = input("input2: ")
+#آنهارا از هم جدا میکنیم و در لیست قرار میدهیم
+input1 = input1.split()
+input2 = input2.split()
+#چون اعداد در لیست به صورت پیش فرض استرینگ هستند آنهارا به عدد صحیح تبدیل میکنیم
+input1 = [int(num) for num in input1]
+input2 = [int(num) for num in input2]
+#print(input1)
+#print(input2)
 
+#برای محاسبه تفاضل دو چند جمله ای یک تابع تعریف میکنیم
 def Tafriq_2_Tabe (input1, input2):
     i=0
     j=0
     m=0
     Tafazol = []
+    
+    #با اضافه کردن ضرایب صفر طول دو لیست را باهم برابر میکنیم
     while len(input1) > len(input2):
         input2=list(reversed(input2))
         input2.append(0)
@@ -17,7 +29,8 @@ def Tafriq_2_Tabe (input1, input2):
         input1.append(0)
         j+=1
         input1 = list(reversed(input1))
-        
+    
+    #اکنون پس از برابر شدن طول ها عمل جمع را انجام میدهیم    
     while m<len(input1):
         a = int(input1[m]) - int(input2[m])
         Tafazol.append(a)
