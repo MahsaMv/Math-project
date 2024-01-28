@@ -1,0 +1,27 @@
+#ضرایب چند جمله ای از کاربر دریافت میکنیم
+input1 = input("input1: ")
+#درجه مورد نظر برای مشتق گیری را از کاربر دریافت میکنیم
+n= int(input("n:"))
+#آنهارا از هم جدا میکنیم و در لیست قرار میدهیم
+input1 = input1.split()
+#چون اعداد در لیست به صورت پیش فرض استرینگ هستند آنهارا به عدد صحیح تبدیل میکنیم
+input1 = [int(num) for num in input1]
+
+#تابعی برای محاسبه مشتق با هر درجه ای تعریف میکنیم
+def Moshtaq(input1):
+    dif=[]
+    j=0
+    while j<n:
+        i=0
+        x = len(input1)-1
+        while i<len(input1)-1:
+            a = x*input1[i]
+            dif.append(a)
+            x-=1
+            i+=1
+        input1=dif
+        dif=[]
+        j+=1
+    return(input1)
+result = Moshtaq(input1)
+print(result)
