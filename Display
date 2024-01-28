@@ -1,0 +1,27 @@
+#ضرایب چند جمله ای از کاربر دریافت میکنیم
+input1 = input("input1: ")
+#آنهارا از هم جدا میکنیم و در لیست قرار میدهیم
+input1 = input1.split()
+#چون اعداد در لیست به صورت پیش فرض استرینگ هستند آنهارا به عدد صحیح تبدیل میکنیم
+input1 = [int(num) for num in input1]
+
+#تابعی برای نمایش چند جمله ای به فرم کلی تعریف میکنیم
+def Namayesh(input1):
+    i=0
+    j=len(input1)-1
+    y=[]
+    while i<len(input1):
+        if input1[i] != 0:
+            if i == len(input1) - 1:
+                y.append(f"{input1[i]}")
+            elif i==len(input1)-2:
+                y.append(f"{input1[i]}x")
+            elif  input1[i] != 1:
+                y.append(f"{input1[i]}x^{j}")
+            else:
+                y.append(f"x^{j}")
+        i+=1
+        j-=1
+    return " + ".join(y)
+result=Namayesh(input1)
+print(result)
